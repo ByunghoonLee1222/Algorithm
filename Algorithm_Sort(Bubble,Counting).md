@@ -87,3 +87,27 @@ for(i=0;i<n-1;++i){
 }
 ```
 
+
+
+### 삽입 정렬(Insertion Sort)
+
+```java
+	public static void insertionSort(int list[]) {
+		final int SIZE = list.length;
+		for( int i = 1; i<SIZE; ++i) { // U집합
+			int temp = list[i];
+			for (int j = 0; j < i; j++) { // S 집합 j: 0~ i-1
+				if(temp <list[j]) { // 삽입 위치
+					for(int k = i-1; k>=j ;k--) {//S집합 끝부터 하나씩 삽입위치 원소까지 
+                       							 // 뒤로 이동
+						list[k+1]= list[k];
+					}
+					list[j]=temp;
+					break;
+				}
+				
+			}
+		}
+	}
+```
+
