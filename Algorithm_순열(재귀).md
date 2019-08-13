@@ -126,53 +126,13 @@
 
 
 
-### 비트연산자
-
-* ​     1  1  0  0			    1  0  1  0
-* **&**  1  0  1  0		    **|**  0  1  1  0                 **~ **1   0
+#### NextPermutation
 
 ---
 
-​            1  0  0  0			    1  1  1  0                     0  1
+1. 뒤부터 교환이 필요한 자리 찾기(꺾이는 위치가 i, i-1과 교환)
+   * i == 0 이면 return ( 꺾이는 위치가 X , 내림차순)
+2. i-1위치에 다음에 올 큰 수 찾기 (맨뒤에서부터 자기자신보다 큰수 찾기=> j)
+3. i-1위치 값과 j 위치 값 교환
+4. i부터 오름차순 정렬( 제일 바깥쪽 점끼리 swap 하는 방식)
 
-* **원하는 비트열을 만들기 위해 사용**
-
-  1. <<    => 0으로 오른쪽 영역
-  2. .>>   => 부호bit로 왼쪽 영역
-  3. .>>> => 0으로 왼쪽 영역 (음수 유지 x)
-
-* ```java
-  1<<0  =>  0001
-  1<<1  =>  0010
-  1<<2  =>  0100
-  
-  그 위치가 사용중인지 확인할 때는 & 연산을 통해 확인
-  1 0 1 0 의 세번째 자리를 확인하기위해
-  & 0 0 1 0 을 연산하여 확인. ( 0 0 1 0 이면 1, 0 0 0 0이면 0)
-  
-  1 0 1 0 의 두번째 0을 1로 바꾸고 싶을때
-  | 0 1 0 0 을 통해 1 1 1 0으로 바꾼다.
-  ///////////////////////////////////////////////////////////////////////////////////
-  		int i =1,j=6;
-  		System.out.println("i: "+Integer.toBinaryString(i));
-  		System.out.println("j: "+Integer.toBinaryString(j));
-  		System.out.println("i<<2 :"+Integer.toBinaryString(i<<2));
-  		//	  j  110   의 첫번째 1이 켜져있는지 꺼져있는지 궁금할때 &	
-  		// 1<<0: 001	궁금한 자리가 0이면 꺼짐 1이면 켜짐
-  		// 1<<1: 010
-  		// 1<<2: 100  
-  		System.out.println("j&(1<<2) :"+Integer.toBinaryString(j&(1<<2)));
-  		System.out.println("j&(1<<1) :"+Integer.toBinaryString(j&(1<<1)));
-  		System.out.println("j&(1<<1) :"+Integer.toBinaryString(j&(1<<0)));
-  		//	  j  110   원하는 비트열을 켜기위해 |
-  		// 1<<0: 001	
-  		// 1<<1: 010
-  		// 1<<2: 100  
-  		System.out.println("j&(1<<2) :"+Integer.toBinaryString(j|(1<<2)));
-  		System.out.println("j&(1<<1) :"+Integer.toBinaryString(j|(1<<1)));
-  		System.out.println("j&(1<<1) :"+Integer.toBinaryString(j|(1<<0)));
-  ```
-
-
-
-* **10 !** 이상은 완전탐색 시 시간 초과 고려
