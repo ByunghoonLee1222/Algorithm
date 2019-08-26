@@ -18,3 +18,13 @@
   * 각 정점에 대한 인접 정점들을 순차적으로 표현
   * 정점끼리 인접한 것이 아니다 
 
+#### 그래프 순회(탐색)
+
+---
+
+* **두가지 방법**
+  * **깊이 우선 탐색** (Depth First Search, DFS)
+    * push, pop, isEmpty, peek
+  * **너비 우선 탐색** (Breadth First Search, BFS)
+    * offer, poll, isEmpty
+
