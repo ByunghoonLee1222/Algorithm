@@ -33,6 +33,9 @@ public class LISTest {
 ```
 
 * 이진 검색 활용
+  * (int) Arrays.binarySearch
+  * 양수(해당 값이 있는 경우) => 찾은 위치 인덱스
+  * 음수(해당 값이 없는 경우) => -insertPoint -1 => 절대값 -1 => 삽입 위치
 
 ```java
 public class LISTest2_BinarySearch {
